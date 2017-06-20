@@ -41,3 +41,4 @@ Thumbs.db
 
 extern/build
 extern/OnePasswordExtension
+Xamarin.OnePassword/Xamarin.OnePassword.*.nupkg

@@ -34,9 +34,6 @@ pull :
 buildExtern : pull
 	cd extern; xcodebuild -sdk iphonesimulator -configuration Release; xcodebuild -sdk iphoneos -configuration Release
 
-	# xcodebuild -workspace NetworkLib.xcworkspace -scheme  -sdk iphonesimulator -configuration Debug
-	# xcodebuild -workspace NetworkLib.xcworkspace -scheme NetworkLib -sdk iphoneos -configuration Debug
-
 	# make a new output folder
 	mkdir -p ${TARGET_BUILD_DIR}/../xamarin-one-password
 
@@ -52,10 +49,14 @@ bind : buildExtern
 		-sdk iphoneos \
 		extern/OnePasswordExtension/OnePasswordExtension.h
 
-build : bind
+	echo "There were likely [Verify] attributes added to the ApiDefinitions.cs file."
+	echo "Please fix those or comment them out then run 'make build'."
+
+build :
 	cd Xamarin.OnePassword && msbuild /p:Configuration=Release
 	cd Xamarin.OnePassword && nuget pack Xamarin.OnePassword.nuspec
 
 clean :
 	rm -rf extern/OnePasswordExtension
 	rm -rf extern/build
+	rm -rf extern/xamarin-one-password

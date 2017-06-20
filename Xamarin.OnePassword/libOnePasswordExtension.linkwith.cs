@@ -7,4 +7,6 @@
 
 using ObjCRuntime;
 
-[assembly: LinkWith ("libOnePasswordExtension.a", SmartLink = true, ForceLoad = true)]
+[assembly: LinkWith ("libOnePasswordExtension.a",
+    LinkTarget.Simulator | LinkTarget.Simulator64 | LinkTarget.ArmV7 | LinkTarget.Arm64,
+    WeakFrameworks = "MobileCoreServices WebKit")]
