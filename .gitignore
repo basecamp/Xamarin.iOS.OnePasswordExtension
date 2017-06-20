@@ -41,4 +41,6 @@ Thumbs.db
 
 extern/build
 extern/OnePasswordExtension
+extern/OnePasswordExtension.xcodeproj/xcuserdata
+extern/OnePasswordExtension.xcodeproj/project.xcworkspace/xcuserdata
 Xamarin.OnePassword/Xamarin.OnePassword.*.nupkg
