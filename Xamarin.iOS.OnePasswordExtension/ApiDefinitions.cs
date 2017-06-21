@@ -2,7 +2,7 @@ using Foundation;
 using ObjCRuntime;
 using UIKit;
 
-namespace Xamarin.OnePassword
+namespace Xamarin.iOS.OnePasswordExtension
 {
 	// typedef void (^OnePasswordLoginDictionaryCompletionBlock)(NSDictionary * _Nullable, NSError * _Nullable);
 	delegate void OnePasswordLoginDictionaryCompletionBlock ([NullAllowed] NSDictionary arg0, [NullAllowed] NSError arg1);
@@ -18,9 +18,9 @@ namespace Xamarin.OnePassword
 	interface OnePasswordExtension
 	{
 		// +(OnePasswordExtension * _Nonnull)sharedExtension;
+		// [Verify (MethodToProperty)]
 		[Static]
 		[Export ("sharedExtension")]
-		// [Verify (MethodToProperty)]
 		OnePasswordExtension SharedExtension { get; }
 
 		// -(BOOL)isAppExtensionAvailable __attribute__((availability(ios_app_extension, unavailable)));
@@ -54,8 +54,8 @@ namespace Xamarin.OnePassword
 		void CreateExtensionItemForWebView (NSObject webView, OnePasswordExtensionItemCompletionBlock completion);
 
 		// -(void)fillReturnedItems:(NSArray * _Nullable)returnedItems intoWebView:(id _Nonnull)webView completion:(OnePasswordSuccessCompletionBlock _Nonnull)completion;
-		[Export ("fillReturnedItems:intoWebView:completion:")]
 		// [Verify (StronglyTypedNSArray)]
+		[Export ("fillReturnedItems:intoWebView:completion:")]
 		void FillReturnedItems ([NullAllowed] NSObject[] returnedItems, NSObject webView, OnePasswordSuccessCompletionBlock completion);
 
 		// -(void)fillLoginIntoWebView:(id _Nonnull)webView forViewController:(UIViewController * _Nonnull)viewController sender:(id _Nullable)sender completion:(OnePasswordSuccessCompletionBlock _Nonnull)completion __attribute__((deprecated("Use fillItemIntoWebView:forViewController:sender:showOnlyLogins:completion: instead. Deprecated in version 1.5")));

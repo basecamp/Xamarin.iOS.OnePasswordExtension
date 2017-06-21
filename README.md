@@ -1,4 +1,4 @@
-# Xamarin.OnePassword
+# Xamarin.iOS.OnePasswordExtension
 
 Xamarin bindings for [1Password Extension](https://github.com/agilebits/onepassword-app-extension).
 
@@ -7,7 +7,7 @@ Xamarin bindings for [1Password Extension](https://github.com/agilebits/onepassw
 The source paired with the [Agile Bits documentation](https://github.com/agilebits/onepassword-app-extension/tree/1.8.4#integrating-1password-with-your-app) will be your best resource, but some basic usage:
 
 ```csharp
-using Xamarin.OnePassword;
+using Xamarin.iOS.OnePasswordExtension;
 // class {
     // Only Add if this iOS device has 1Password available
     if (OnePasswordExtension.SharedExtension.IsAppExtensionAvailable) {
