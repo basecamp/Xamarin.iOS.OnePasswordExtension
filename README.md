@@ -41,5 +41,5 @@ an archive for binding purposes. That archive is bundled within the Nuget packag
 To rebuild from scratch:
 
 * `make all` to pull the extension repo, build an archive and write a binding file
-* The binding file needs to have `Verify` and `Unavailable` attributes commented out
+* The binding file (`ApiDefinitions.cs`) needs to have `Verify` and `Unavailable` attributes commented out
 * `make build` will build the C# project and build a nupkg
