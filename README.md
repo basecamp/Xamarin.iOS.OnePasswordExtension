@@ -42,4 +42,6 @@ To rebuild from scratch:
 
 * `make all` to pull the extension repo, build an archive and write a binding file
 * The binding file (`ApiDefinitions.cs`) needs to have `Verify` and `Unavailable` attributes commented out
+* If you're planning to release a new version, bump the version in `Xamarin.iOS.OnePasswordExtension/Xamarin.iOS.OnePasswordExtension.nuspec`
 * `make build` will build the C# project and build a nupkg
+* `make publish` will push to nuget - you may need API key from nuget
