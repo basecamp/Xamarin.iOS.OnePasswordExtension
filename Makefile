@@ -40,6 +40,8 @@ build :
 	cd Xamarin.iOS.OnePasswordExtension && nuget pack Xamarin.iOS.OnePasswordExtension.nuspec
 
 publish :
+	git tag -a "v${CURRENT_PROJECT_VERSION}" -m "Release v${CURRENT_PROJECT_VERSION}"
+	git push origin "v${CURRENT_PROJECT_VERSION}"
 	nuget push Xamarin.iOS.OnePasswordExtension/Xamarin.iOS.OnePasswordExtension.${CURRENT_PROJECT_VERSION}.nupkg -Source https://www.nuget.org/api/v2/package
 
 clean :
