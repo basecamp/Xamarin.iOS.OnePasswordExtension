@@ -57,3 +57,4 @@ clean :
 	rm -rf extern/OnePasswordExtension
 	rm -rf extern/build
 	rm -rf extern/xamarin-one-password
+	rm -rf Xamarin.iOS.OnePasswordExtension/Xamarin.iOS.OnePasswordExtension.*.nupkg
