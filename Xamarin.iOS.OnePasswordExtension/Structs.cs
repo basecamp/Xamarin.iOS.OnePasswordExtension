@@ -1,7 +1,7 @@
 ﻿using System;
 using Foundation;
 
-namespace Xamarin.OnePassword
+namespace Xamarin.iOS.OnePasswordExtension
 {
 	public static class AppExtension
 	{
