@@ -10,7 +10,9 @@ The source paired with the [Agile Bits documentation](https://github.com/agilebi
 using Xamarin.iOS.OnePasswordExtension;
 // class {
     // Only Add if this iOS device has 1Password available
-    if (OnePasswordExtension.SharedExtension.IsAppExtensionAvailable) {
+    // ?? because this isn't currently working on iphone-simulator.
+    // Must run on Device
+    if ((OnePasswordExtension.SharedExtension?.IsAppExtensionAvailable ?? false)) {
         // On Button press or something {
             OnePasswordExtension.SharedExtension.FindLoginForURLString("https://your-domain.com", viewController, buttonControl, (NSDictionary loginDictionary, NSError error) => {
                 if (loginDictionary == null || loginDictionary.Count == 0) {
