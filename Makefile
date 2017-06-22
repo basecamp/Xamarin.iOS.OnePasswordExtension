@@ -40,8 +40,16 @@ build :
 	cd Xamarin.iOS.OnePasswordExtension && nuget pack Xamarin.iOS.OnePasswordExtension.nuspec
 
 publish :
+	@if [ !$(test -z "$(git status --porcelain)") ]; then \
+	  echo "Commit your changes then try again"; exit 2; \
+	fi
+
+	@echo "Publishing v${CURRENT_PROJECT_VERSION}..."
+	@echo "Tagging v${CURRENT_PROJECT_VERSION}..."
 	git tag -a "v${CURRENT_PROJECT_VERSION}" -m "Release v${CURRENT_PROJECT_VERSION}"
+	@echo "Pushing v${CURRENT_PROJECT_VERSION} to Github..."
 	git push origin "v${CURRENT_PROJECT_VERSION}"
+	@echo "Pushing v${CURRENT_PROJECT_VERSION} to Nuget..."
 	nuget push Xamarin.iOS.OnePasswordExtension/Xamarin.iOS.OnePasswordExtension.${CURRENT_PROJECT_VERSION}.nupkg -Source https://www.nuget.org/api/v2/package
 
 clean :
